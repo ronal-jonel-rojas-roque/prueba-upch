@@ -250,13 +250,11 @@ export default function TableUsers() {
           </div>
         </div>
 
-        {/* Export Format Modal */}
         <ExportFormatModal
           show={showExportFormatModal}
           onHide={() => setShowExportFormatModal(false)}
           onFormatSelect={handleExportFormatSelect}
         />
-
 
         {showFilters && (
           <section className="table__filters">
@@ -314,7 +312,6 @@ export default function TableUsers() {
             <option value="dob">Fecha de Nacimiento</option>
           </select>
         </div>
-
       </section >
 
       <section className="table__body">
