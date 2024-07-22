@@ -24,11 +24,10 @@ interface User {
 interface ExportFormatModalProps {
     show: boolean;
     onHide: () => void;
-    filteredUsers: User[];
     onFormatSelect: (format: string) => void;
 }
 
-const ExportFormatModal: React.FC<ExportFormatModalProps> = ({ show, onHide, filteredUsers, onFormatSelect }) => {
+const ExportFormatModal: React.FC<ExportFormatModalProps> = ({ show, onHide, onFormatSelect }) => {
     const [exportFormat, setExportFormat] = useState<string>('');
 
 

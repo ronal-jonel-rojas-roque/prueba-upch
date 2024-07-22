@@ -101,8 +101,6 @@ export default function TableUsers() {
     }
   };
 
-
-
   const toggleFilters = () => {
     if (showFilters) {
       setFilterCity('');
@@ -157,7 +155,6 @@ export default function TableUsers() {
 
   })/* .slice((page - 1) * 50, page * 50) */;
 
-
   useEffect(() => {
     setLoading(true);
     const cachedUsers = localStorage.getItem(`users-page-${page}`);
@@ -169,7 +166,7 @@ export default function TableUsers() {
     } else {
       fetchUsers();
     }
-  }, [page]);
+  }, [page, fetchUsers]);
 
   useEffect(() => {
     setNoRecords(filteredUsers.length === 0);
@@ -256,7 +253,6 @@ export default function TableUsers() {
         {/* Export Format Modal */}
         <ExportFormatModal
           show={showExportFormatModal}
-          filteredUsers={filteredUsers}
           onHide={() => setShowExportFormatModal(false)}
           onFormatSelect={handleExportFormatSelect}
         />

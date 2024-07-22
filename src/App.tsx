@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import Home from './pages/home/Home';
 import ErrorPage from './components/errorpage/ErrorPage';
 import 'bootstrap/dist/css/bootstrap.min.css';

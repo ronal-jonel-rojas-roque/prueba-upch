@@ -18,10 +18,10 @@ const Logout = () => {
   };
 
   return (
-    <a href="#" onClick={handleLogout} className= 'logout'>
+    <div onClick={handleLogout} className= 'logout'>
       <FaSignOutAlt className="icon" />
       <span className="title">Cerrar Sesión</span>
-    </a>
+    </div>
   );
 };
 

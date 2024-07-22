@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import '../styles/login.css'
 import { MdOutlineContactMail } from "react-icons/md";
@@ -129,7 +129,7 @@ const LoginController = () => {
                                 <input type="checkbox" checked={rememberMe} onChange={handleRememberMeChange} />
                                 <span>Recordarme</span>
                             </div>
-                            <a href="#" id='dedic'>¿Olvidaste tu Contraseña?</a>
+                            <Link to="#" id='dedic'>¿Olvidaste tu Contraseña?</Link>
                         </div>
                     </div>
                     <div className="div-spacing"></div>
