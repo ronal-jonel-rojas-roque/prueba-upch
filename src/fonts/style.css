@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Fun City Level';
+    src: local('Fun City Level 2 Stencil'), local('Fun-City-Level-2-Stencil'),
+        url('FunCityLevel2Stencil.woff2') format('woff2'),
+        url('FunCityLevel2Stencil.woff') format('woff'),
+        url('FunCityLevel2Stencil.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }

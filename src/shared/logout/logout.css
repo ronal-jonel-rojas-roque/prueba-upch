@@ -1,0 +1,33 @@
+.logout {
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    padding: 5px;
+    background: #007bff;
+    border-radius: 20px;
+}
+
+.logout:hover,
+.logout:focus {
+    background-color: #e9ecef;
+    color: #007bff;
+}
+
+.logout .icon {
+    font-size: 20px;
+    margin-right: 8px;
+    fill: var(--text-color);
+}
+
+.logout span {
+    font-family: 'MyFontMinionReg';
+
+}
+
+.logout:active {
+    background-color: #dee2e6;
+}
