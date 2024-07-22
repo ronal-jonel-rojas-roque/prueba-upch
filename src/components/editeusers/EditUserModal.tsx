@@ -175,10 +175,10 @@ const EditUserModal: React.FC<EditUserModalProps> = ({ show, user, onClose, onSa
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={onClose}>
-                    Close
+                    Cancelar
                 </Button>
                 <Button variant="primary" onClick={handleSave}>
-                    Save Changes
+                    Guardar
                 </Button>
             </Modal.Footer>
         </Modal>

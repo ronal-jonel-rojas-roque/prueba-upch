@@ -1,38 +1,41 @@
 import React, { useState } from 'react';
 import { Modal, Button, Form } from 'react-bootstrap';
+import { exportData } from './exportUtils';
 
 interface User {
     name: {
-      title: string;
-      first: string;
-      last: string;
+        title: string;
+        first: string;
+        last: string;
     };
     email: string;
     id: {
-      value: string;
+        value: string;
     };
     cell: string;
     location: {
-      state: string;
-      country: string;
+        state: string;
+        country: string;
     };
     dob: {
-      date: string;
+        date: string;
     };
     gender: string;
-  }
+}
 interface ExportFormatModalProps {
     show: boolean;
+    users: User[];
+    exportFormat: string;
     onHide: () => void;
+    setExportFormat: (format: string) => void;
     onFormatSelect: (format: string) => void;
 }
 
-const ExportFormatModal: React.FC<ExportFormatModalProps> = ({ show, onHide, onFormatSelect }) => {
-    const [exportFormat, setExportFormat] = useState<string>('');
-
+const ExportFormatModal: React.FC<ExportFormatModalProps> = ({ show, onHide, exportFormat, onFormatSelect, users, setExportFormat }) => {
 
     const handleExport = () => {
         onFormatSelect(exportFormat);
+        exportData(exportFormat, users);
         onHide();
     };
 

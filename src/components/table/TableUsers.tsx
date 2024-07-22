@@ -9,7 +9,6 @@ import Logout from '../../shared/logout/Logout';
 import EditUserModal from '../editeusers/EditUserModal';
 import DeleteConfirmation from '../deleteuser/DeleteConfirmation';
 import Swal from 'sweetalert2';
-import { exportData } from '../../utils/exportUtils';
 
 interface User {
   picture: {
@@ -49,7 +48,7 @@ export default function TableUsers() {
   const [searchValue, setSearchValue] = useState('');
   const [searchType, setSearchType] = useState('name');
 
-  const [exportFormat, setExportFormat] = useState('');
+  const [exportFormat, setExportFormat] = useState<string>('');
 
   const [showExportFormatModal, setShowExportFormatModal] = useState(false);
 
@@ -166,7 +165,7 @@ export default function TableUsers() {
     } else {
       fetchUsers();
     }
-  }, [page, fetchUsers]);
+  }, [page]);
 
   useEffect(() => {
     setNoRecords(filteredUsers.length === 0);
@@ -175,7 +174,6 @@ export default function TableUsers() {
   const handleExportFormatSelect = (format: string) => {
     setExportFormat(format);
     setShowExportFormatModal(false);
-    exportData(format, users);
   };
 
   const handleCheckboxChange = (user: User, checked: boolean) => {
@@ -252,6 +250,9 @@ export default function TableUsers() {
 
         <ExportFormatModal
           show={showExportFormatModal}
+          users={filteredUsers}
+          exportFormat={exportFormat}
+          setExportFormat={setExportFormat}
           onHide={() => setShowExportFormatModal(false)}
           onFormatSelect={handleExportFormatSelect}
         />
@@ -312,6 +313,7 @@ export default function TableUsers() {
             <option value="dob">Fecha de Nacimiento</option>
           </select>
         </div>
+
       </section >
 
       <section className="table__body">

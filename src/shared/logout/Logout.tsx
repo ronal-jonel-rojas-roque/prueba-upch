@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaSignOutAlt } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import './logout.css'
 
 const Logout = () => {
@@ -18,10 +18,10 @@ const Logout = () => {
   };
 
   return (
-    <div onClick={handleLogout} className= 'logout'>
+    <Link to="/" onClick={handleLogout} className= 'logout'>
       <FaSignOutAlt className="icon" />
       <span className="title">Cerrar Sesión</span>
-    </div>
+    </Link>
   );
 };
 

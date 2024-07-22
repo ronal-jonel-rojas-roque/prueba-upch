@@ -129,7 +129,7 @@ const LoginController = () => {
                                 <input type="checkbox" checked={rememberMe} onChange={handleRememberMeChange} />
                                 <span>Recordarme</span>
                             </div>
-                            <Link to="#" id='dedic'>¿Olvidaste tu Contraseña?</Link>
+                            <Link to="/respawn" id='dedic'>¿Olvidaste tu Contraseña?</Link>
                         </div>
                     </div>
                     <div className="div-spacing"></div>
