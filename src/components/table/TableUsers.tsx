@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import search from '../../assets/images/icons/search.png';
 import { FaUserEdit } from 'react-icons/fa';
 import { BsSliders } from "react-icons/bs";
@@ -64,16 +64,16 @@ export default function TableUsers() {
 
 
 
-  const fetchUsers = async (retries: number = 5) => {
+  const fetchUsers = useCallback(async (retries: number = 5) => {
     try {
       const cacheKey = `users-page-${page}`;
       const cacheTimestampKey = `${cacheKey}-timestamp`;
       const cacheExpiration = 5 * 60 * 1000;
-
+  
       const cachedUsers = localStorage.getItem(cacheKey);
       const cachedTimestamp = localStorage.getItem(cacheTimestampKey);
       const now = Date.now();
-
+  
       if (cachedUsers && cachedTimestamp && (now - parseInt(cachedTimestamp)) < cacheExpiration) {
         const users = JSON.parse(cachedUsers);
         setUsers(users);
@@ -98,7 +98,7 @@ export default function TableUsers() {
         setLoading(false);
       }
     }
-  };
+  }, [page]);
 
   const toggleFilters = () => {
     if (showFilters) {
@@ -165,7 +165,7 @@ export default function TableUsers() {
     } else {
       fetchUsers();
     }
-  }, [page]);
+  }, [page, fetchUsers]);
 
   useEffect(() => {
     setNoRecords(filteredUsers.length === 0);
@@ -187,11 +187,13 @@ export default function TableUsers() {
   };
 
   const handleEditClick = () => {
-    if (selectedUsers.length === 1) {
+    if (selectedUsers.length === 0) {
+      alert('Por favor selecciona un usuario para editar');
+    } else if (selectedUsers.length > 1) {
+      alert('Solo se puede editar un usuario a la vez');
+    } else {
       setEditUser(selectedUsers[0]);
       setShowEditModal(true);
-    } else {
-      alert('Solo se puede editar un usuario a la vez');
     }
   };
 
